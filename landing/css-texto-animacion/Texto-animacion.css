@@ -1,0 +1,22 @@
+/*css del texto animado*/
+main {
+     justify-content: flex-end;
+     align-items: center;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     color: rgb(93, 151, 36);
+     text-align: center;
+     font-size: 40px;
+     background-color: rgba(209, 216, 5, 0.438);
+}
+
+
+@media screen and (max-width: 915px) {
+     main {
+          flex-direction: column;
+          text-align: center;
+     }
+
+     main .contenedor-img {
+          margin-bottom: 40px;
+     }
+}
