@@ -1,0 +1,137 @@
+/* Este archivo es para el estilo de niveles*/
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: cursive;
+    margin: 0;
+}
+
+#niveles_formativos {
+    background-color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 54px 83px;
+}
+
+.parrafo {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin: 50px;
+    text-align: center;
+    justify-content: justify;
+    width: 47%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+
+}
+
+
+.we{
+    padding: 10px 1px;
+    border: 15px solid rgb(250, 246, 0);
+    border-radius: 30px;
+    background: rgb(250, 246, 0);
+    margin: opx auto;
+}
+
+.wi{
+    padding: 10px 1px;
+    border: 15px solid rgb(250, 246, 0);
+    border-radius: 30px;
+    background: rgb(250, 246, 0);
+}
+
+.wo{
+    padding: 10px 1px;
+    border: 15px solid rgb(250, 246, 0);
+    border-radius: 30px;
+    background: rgb(250, 246, 0);
+}
+/*Horario de la EI*/
+.horario{
+    text-align: center;
+}
+
+@media (min-width: 850px){
+    .parrafo {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+        margin: 20px;
+        text-align: center;
+        justify-content: justify;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-flow: wrap;
+    
+    }
+    
+    
+    .we{
+        border: 15px solid rgb(250, 246, 0);
+        border-radius: 30px;
+        background: rgb(250, 246, 0);
+       
+    }
+    .wi{
+        padding: 5px 5px;
+        border: 15px solid rgb(250, 246, 0);
+        border-radius: 30px;
+        background: rgb(250, 246, 0);
+    }
+    
+    .wo{
+        border: 15px solid rgb(250, 246, 0);
+        border-radius: 30px;
+        background: rgb(250, 246, 0);
+    }
+    /*Horario de la EI*/
+    .horario{
+        text-align: center;
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+    .parrafo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin: 20px;
+    text-align: center;
+    justify-content: justify;
+    
+    }
+    
+    
+    .we{
+        border: 15px solid rgb(250, 246, 0);
+        border-radius: 30px;
+        background: rgb(250, 246, 0);
+       
+    }
+    .wi{
+        padding: 5px 5px;
+        border: 15px solid rgb(250, 246, 0);
+        border-radius: 30px;
+        background: rgb(250, 246, 0);
+    }
+    
+    .wo{
+        border: 15px solid rgb(250, 246, 0);
+        border-radius: 30px;
+        background: rgb(250, 246, 0);
+    }
+    /*Horario de la EI*/
+    .horario{
+        text-align: center;
+    }
+}
