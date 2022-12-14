@@ -1,23 +1,18 @@
 {
-  "name": "landing",
+  "name": "login",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "<img src=\"https://i0.wp.com/www.configuroweb.com/wp-content/uploads/2022/05/Inicio-de-sesion-con-Node.js-Express-y-MySQL-1.png?resize=800%2C500&ssl=1\">",
+  "main": "login.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1"
+  },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EdgarAngelJunesAcuna/landing.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EdgarAngelJunesAcuna/landing/issues"
-  },
-  "homepage": "https://github.com/EdgarAngelJunesAcuna/landing#readme",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
+  "devDependencies": {}
 }
