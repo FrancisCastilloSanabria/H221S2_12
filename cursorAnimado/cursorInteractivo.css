@@ -1,0 +1,33 @@
+/*css del cursor*/
+.cursor {
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    border: 5px solid rgba(0, 0, 0);
+    background: rgb(4, 175, 7);
+    border-radius: 100%;
+    position: absolute;
+    transition-duration: 100ms;
+}
+
+.cursor2 {
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    border: 5px solid rgba(0, 0, 0);
+    background: rgb(172, 175, 4);
+    border-radius: 100%;
+    position: absolute;
+    transition-duration: 200ms;
+}
+
+.cursor3 {
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    border: 5px solid rgba(0, 0, 0);
+    background: rgb(175, 4, 4);
+    border-radius: 100%;
+    position: absolute;
+    transition-duration: 300ms;
+}
