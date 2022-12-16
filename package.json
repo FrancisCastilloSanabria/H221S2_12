@@ -126,5 +126,6 @@
   "bugs": {
     "url": "https://github.com/FrancisCastilloSanabria/H221S2_12/issues"
   },
-  "homepage": "https://github.com/FrancisCastilloSanabria/H221S2_12#readme"
+  "homepage": "https://github.com/FrancisCastilloSanabria/H221S2_12#readme",
+  "devDependencies": {}
 }
