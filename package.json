@@ -1,25 +1,25 @@
 {
-  "dependencies": {
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "mysql": "^2.18.1"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "name": "login",
-  "description": "",
+  "name": "landing",
   "version": "1.0.0",
-  "main": "login.js",
-  "devDependencies": {},
+  "description": "",
+  "main": "connect.js",
+  "scripts": {
+    "start": "node connect.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FrancisCastilloSanabria/H221S2_12.git"
+    "url": "git+https://github.com/EdgarAngelJunesAcuna/landing.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FrancisCastilloSanabria/H221S2_12/issues"
+    "url": "https://github.com/EdgarAngelJunesAcuna/landing/issues"
   },
-  "homepage": "https://github.com/FrancisCastilloSanabria/H221S2_12#readme"
+  "homepage": "https://github.com/EdgarAngelJunesAcuna/landing#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
 }
