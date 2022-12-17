@@ -1,78 +1,53 @@
-var express = require("express");
-var mysql = require("mysql");
-var app = express();
-var cors = require("cors");
+const mysql = require('mysql');
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
 
-app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/'));
-
-var conexion = mysql.createConnection({
+const connection = mysql.createConnection({
 	host: "34.194.238.172",
 	user: "francis",
 	password: "francis144",
 	database: "login_socket"
 });
 
-conexion.connect(function (error) {
-	if (error) {
-		console.log(error)
-		throw error;
-	} else {
-		console.log("Conexión exitosa");
-	}
-});
+const app = express();
 
-const puerto = process.env.PUERTO || 3000;
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'static')));
 
-app.listen(puerto, function () {
-	console.log("Servidor funcionando en puerto: " + puerto);
-});
-
-app.post("/api/contactanos", (req, res) => {
-	console.log('datos : ', req.body);
-	let data = {
-		nomcon: req.body.nombre,
-		corrcon: req.body.correo,
-		asucon: req.body.asunto,
-		descon: req.body.descripcion
-	};
-	let sql = "INSERT INTO contactanos SET ?";
-	conexion.query(sql, data, function (error, results) {
-		if (error) {
-			throw error;
-		} else {
-			console.log(data);
-			res.send(data);
-		}
-	});
-});
-
-app.get('/', function (req, res) {
-	res.sendFile(__dirname + "/menu.html");
-});
-
-app.get('/login', function (req, res) {
-	res.sendFile(__dirname + "/login.html");
+// http://localhost:3000/
+app.get('/', function(request, response) {
+	// Render login template
+	response.sendFile(path.join(__dirname + '/login.html'));
 });
 
 // http://localhost:3000/auth
-app.post('/auth', function (request, response) {
-	console.log('DATOS : ', request.body);
+app.post('/auth', function(request, response) {
+	// Capture the input fields
 	let username = request.body.username;
 	let password = request.body.password;
-
+	// Ensure the input fields exists and are not empty
 	if (username && password) {
-
-		conexion.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function (error, results, fields) {
+		// Execute SQL query that'll select the account from the database based on the specified username and password
+		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			// If there is an issue with the query, output the error
 			if (error) throw error;
-
+			// If the account exists
 			if (results.length > 0) {
-				response.send('Te has logueado satisfactoriamente:, ' + request.body.username + '!');
+				// Authenticate the user
+				request.session.loggedin = true;
+				request.session.username = username;
+				// Redirect to home page
+				response.redirect('/home');
 			} else {
 				response.send('Usuario y/o Contraseña Incorrecta');
-			}
+			}			
 			response.end();
 		});
 	} else {
@@ -80,3 +55,18 @@ app.post('/auth', function (request, response) {
 		response.end();
 	}
 });
+
+// http://localhost:3000/home
+app.get('/home', function(request, response) {
+	// If the user is loggedin
+	if (request.session.loggedin) {
+		// Output username
+		response.send('Te has logueado satisfactoriamente:, ' + request.session.username + '!');
+	} else {
+		// Not logged in
+		response.send('¡Inicia sesión para ver esta página!');
+	}
+	response.end();
+});
+
+app.listen(3000);
